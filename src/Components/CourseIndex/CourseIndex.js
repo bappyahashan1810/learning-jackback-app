@@ -6,12 +6,16 @@ import { AiOutlineStar } from 'react-icons/ai'
 import { GoCodeReview } from 'react-icons/go'
 import TopicDetails from '../TopicDetails/TopicDetails';
 import { AiFillStar } from 'react-icons/ai'
+import { Toaster, toast } from 'react-hot-toast';
 
 const CourseIndex = ({ index }) => {
     const { author, topic1, course_name, price } = index;
     console.log(index);
+    const handleToast = () => {
+        toast.success('Successfully Added')
+    }
     return (
-        <div className='grid grid-cols-4 gap-4 mt-8 max-w-[1240px] mx-[60px] '>
+        <div className='md:grid grid-cols-4 gap-4 mt-8 max-w-[1240px] mx-[60px] '>
             <div className=' p-3 relative'>
                 <h1 className='font-bold text-xl '>Course List</h1>
                 <div className='sticky top-0 '>
@@ -24,7 +28,7 @@ const CourseIndex = ({ index }) => {
                 </div>
 
             </div>
-            <div className='border border-black h-[300px] col-span-2 '>
+            <div className=' col-span-2 '>
                 {
                     topic1.map(topic => <TopicDetails
 
@@ -51,7 +55,7 @@ const CourseIndex = ({ index }) => {
                         <GoCodeReview className='text-xl  mr-2'></GoCodeReview><p>{author.author_reviews}</p>
                     </div>
                 </div>
-                <div className='mt-12 border border-black p-3'>
+                <div className='mt-12 p-3'>
                     <div>
                         <h4 className='font-bold text-xl mb-3'>Course Name:{course_name}</h4>
                         <p className=''>Instructor: {author.author_name}</p>
@@ -63,7 +67,11 @@ const CourseIndex = ({ index }) => {
                                 <p className='text-xl font-bold'>Price:BDT {price}</p>
                             </div>
                         </div>
-                        <button className='w-full bg-blue-400 p-3 mt-5 rounded-md'>BUY</button>
+                        <button onClick={handleToast} className='w-full bg-blue-400 hover:bg-blue-600 p-3 mt-5 rounded-md text-white'>BUY</button>
+                        <Toaster
+                            position="bottom-center"
+                            reverseOrder={false}
+                        />
                     </div>
 
                 </div>

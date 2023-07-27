@@ -9,7 +9,7 @@ import Footer from '../Components/Footer/Footer';
 
 const Main = () => {
     const courses = useLoaderData();
-    console.log(courses)
+
     return (
         <div>
             <NavBar></NavBar>

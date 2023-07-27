@@ -2,13 +2,15 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Main/Main";
 import SecondMain from "../Main/SecondMain";
 import CourseDetailsAndCart from "../Components/CourseDetailsAndCart/CourseDetailsAndCart";
+import Login from "../Components/Login/Login";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
-        loader: () => fetch('http://localhost:5000/courses')
+        loader: () => fetch('https://jackback-server.vercel.app/courses')
 
 
 
@@ -20,8 +22,12 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/courseDetails/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
-                element: <CourseDetailsAndCart></CourseDetailsAndCart>
+                loader: ({ params }) => fetch(`https://jackback-server.vercel.app/courses/${params.id}`),
+                element: <PrivateRoutes><CourseDetailsAndCart></CourseDetailsAndCart></PrivateRoutes>
+            },
+            {
+                path: '/courseDetails/login',
+                element: <Login></Login>
             }
         ]
     }
