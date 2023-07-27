@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCH6P4OlF4AAgHncBNF3NNKIqEZxQe0JEg",
-    authDomain: "jack-back-learning-app.firebaseapp.com",
-    projectId: "jack-back-learning-app",
-    storageBucket: "jack-back-learning-app.appspot.com",
-    messagingSenderId: "727723967936",
-    appId: "1:727723967936:web:8ba77af99d083e550fb425"
+    apiKey: process.env.REACT_APP_APIKEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_PROJECTID,
+    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_APPID,
 };
 
 // Initialize Firebase
